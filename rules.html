@@ -15,7 +15,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  
+
   <body>
 
 	<div class="row">
@@ -26,7 +26,7 @@
         <li class="list-group-item side-text" href="#">RULES</li>
       </ul>
     </div>
-    
+
 	<div class="col-md-9 col-lg-9 col-xl-9 main">
       <div class="head">
         Name to be inserted with logo
@@ -82,20 +82,26 @@
 						<div class="condition" class="form-inline" style="padding: 0 10px">
 							<div class="glyphicon glyphicon-plus" onclick=""></div>
 							<div class="glyphicon glyphicon-minus disabled"></div>
-							<span style="margin:5px">if</span>
-							<select class="form-control ">
-								<option id="1">a land line makes</option>
-								<option id="2">a mobile line makes</option>
-								<option id="3">value1</option>
-							</select>
+							<span style="margin:5px">If</span>
+							<label for="param">Number of Calls</label>
 							<span style="margin:5px">is</span>
-							<select class="form-control mb-2 mr-sm-2 mb-sm-0">
+							<select id="param" class="form-control mb-2 mr-sm-2 mb-sm-0">
 								<option id="1">></option>
 								<option id="2"><</option>
 								<option id="3">=</option>
 							</select>
 							<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="value">
 						</div>
+            <div><br />
+              <div><strong>Promotion offered is: </strong></div>
+              <input type="text" name="" value="100">
+              <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="type">
+                <option value="">Incoming</option>
+                <option value="">Outcoming</option>
+              </select>
+              <input type="text" name="" value="7">
+
+            </div>
 					</form>
 				</div>
 			  </div>
@@ -118,9 +124,9 @@
 							<div class="glyphicon glyphicon-minus disabled"></div>
 							<span style="margin:5px">if</span>
 							<select class="form-control ">
-								<option id="1">a land line makes</option>
-								<option id="2">a mobile line makes</option>
-								<option id="3">value1</option>
+								<option id="1" disabled="true">Location</option>
+								<option id="2">International Calls</option>
+								<option id="3">Local Calls</option>
 							</select>
 							<span style="margin:5px">is</span>
 							<select class="form-control mb-2 mr-sm-2 mb-sm-0">
@@ -128,8 +134,29 @@
 								<option id="2"><</option>
 								<option id="3">=</option>
 							</select>
-							<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="value">
+							<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="No of calls">
+              <select class="form-control mb-2 mr-sm-2 mb-sm-0">
+                <option id="1">></option>
+                <option id="2"><</option>
+                <option id="3">=</option>
+              </select>
+              <input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="Duration">
 						</div>
+            <div><br />
+              <div><strong>Promotion offered is: </strong></div>
+              <input type="text" name="" value="" placeholder="Discount offered">
+              <span style="margin:5px">for</span>
+              <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="type">
+                <option value="">International Incoming</option>
+                <option value="">International Outgoing</option>
+                <option value="">Local Incoming</option>
+                <option value="">Local Outgoing</option>
+              </select>
+              <span style="margin:5px">for</span>
+              <input type="text" name="" value="7">
+              <span style="margin:5px">Days</span>
+
+            </div>
 					</form>
 				</div>
 			  </div>
@@ -142,14 +169,14 @@
 
     </div>
   </div>
-		
-	
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 	<script>
-	$(document).ready(function(){		
+	$(document).ready(function(){
 		$.ajax({
 		   url: 'https://zai17s62h0.execute-api.ap-southeast-1.amazonaws.com/prod/retrieverules',
 		   data: {
