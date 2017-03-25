@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rules Management</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="./css/style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -14,42 +15,34 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  
   <body>
 
-	
-	<div class="container-fluid">
-		<h1>Rules Management</h1>
-		<div class="row">
-			<div class="col-md-2 col-lg-2 col-xl-2"></div>
-			<div class="col-md-8 col-lg-8 col-xl-8" style="border-color:#333">
-				<nav class="navbar navbar-default">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					  <ul class="nav navbar-nav">
-						<li class="dropdown">
-						  <a href="#" id="rulesDropdown1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							<span id="rulesName">Select Rules</span>
-							<span class="caret"></span>
-						  </a>
-						  <ul class="dropdown-menu">
-							<li><a href="#">Rules 1</a></li>
-							<li><a href="#">Rules 2</a></li>
-							<li><a href="#">Rules 3</a></li>
-						  </ul>
-						</li>
-					  </ul>
-					</div><!-- /.navbar-collapse -->
-				</nav>
+	<div class="row">
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 side">
+      <ul class="list-group side-bar">
+        <li class="list-group-item side-text" href="#">DASHBOARD</li>
+        <li class="list-group-item side-text" href="#">UPDATES</li>
+        <li class="list-group-item side-text" href="#">RULES</li>
+      </ul>
+    </div>
+    
+	<div class="col-md-9 col-lg-9 col-xl-9 main">
+      <div class="head">
+        Name to be inserted with logo
+      </div>
+	  <div style="padding: 10px 0">
+		<button type="button" class="btn btn-primary glyphicon-plus">Add new rule</button>
+	  </div>
+	  <div class="panel-group">
+	  <div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+				<a data-toggle="collapse" href="#collapse1">Rule 1: Name</a>
+			  </h4>
+			</div>
+			<div id="collapse1" class="panel-collapse collapse">
+			  <div class="panel-body">
 				<div id="rule1">
 					<form class="form-inline">
 						<div class="condition" class="form-inline" style="padding: 0 10px">
@@ -71,10 +64,84 @@
 						</div>
 					</form>
 				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-lg-2 col-xl-2"></div>
+		  </div>
 		</div>
-	</div>
+		<div class="panel-group">
+	  <div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+				<a data-toggle="collapse" href="#collapse2">Rule 2: Name</a>
+			  </h4>
+			</div>
+			<div id="collapse2" class="panel-collapse collapse">
+			  <div class="panel-body">
+				<div id="rule1">
+					<form class="form-inline">
+						<div class="condition" class="form-inline" style="padding: 0 10px">
+							<div class="glyphicon glyphicon-plus" onclick=""></div>
+							<div class="glyphicon glyphicon-minus disabled"></div>
+							<span style="margin:5px">if</span>
+							<select class="form-control ">
+								<option id="1">a land line makes</option>
+								<option id="2">a mobile line makes</option>
+								<option id="3">value1</option>
+							</select>
+							<span style="margin:5px">is</span>
+							<select class="form-control mb-2 mr-sm-2 mb-sm-0">
+								<option id="1">></option>
+								<option id="2"><</option>
+								<option id="3">=</option>
+							</select>
+							<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="value">
+						</div>
+					</form>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="panel-group">
+	  <div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+				<a data-toggle="collapse" href="#collapse3">Rule 3: Name</a>
+			  </h4>
+			</div>
+			<div id="collapse3" class="panel-collapse collapse">
+			  <div class="panel-body">
+				<div id="rule1">
+					<form class="form-inline">
+						<div class="condition" class="form-inline" style="padding: 0 10px">
+							<div class="glyphicon glyphicon-plus" onclick=""></div>
+							<div class="glyphicon glyphicon-minus disabled"></div>
+							<span style="margin:5px">if</span>
+							<select class="form-control ">
+								<option id="1">a land line makes</option>
+								<option id="2">a mobile line makes</option>
+								<option id="3">value1</option>
+							</select>
+							<span style="margin:5px">is</span>
+							<select class="form-control mb-2 mr-sm-2 mb-sm-0">
+								<option id="1">></option>
+								<option id="2"><</option>
+								<option id="3">=</option>
+							</select>
+							<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="value">
+						</div>
+					</form>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+
+
+
+    </div>
+  </div>
 		
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -82,14 +149,20 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 	<script>
-		$('.glyphicon-plus').click(function(){
-			$(this)
+	$(document).ready(function(){		
+		$.ajax({
+		   url: 'https://zai17s62h0.execute-api.ap-southeast-1.amazonaws.com/prod/retrieverules',
+		   data: {
+			  format: 'json'
+		   },
+		   error: function(exception){alert('Exeption:'+exception);},
+		   dataType: 'jsonp',
+		   success: function(data) {
+			  alert("done");
+		   },
+		   type: 'GET'
 		});
-		$('ul .dropdown-menu li').click(function(){
-			alert("blah");
-			$(this).parent().sibling('a #rulesName').text($(this).value());
-		});
-		
+	});
 	</script>
   </body>
 </html>
