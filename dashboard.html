@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- Latest compiled and minified CSS -->
+  <!-- <script src="./js/canvasjs.min.js"></script> -->
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="./css/style.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.js"></script>
+<script src="./js/display.js"></script>
+</head>
+<body>
+
+<!-- <div class="container"> -->
+  <div class="row">
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 side">
+      <ul class="list-group side-bar">
+        <li class="list-group-item side-text" href="#">DASHBOARD</li>
+        <li class="list-group-item side-text" href="#">UPDATES</li>
+        <li class="list-group-item side-text" href="#">RULES</li>
+      </ul>
+    </div>
+
+
+    <div class="col-md-9 col-lg-9 col-xl-9 main">
+      <div class="head">
+        Name to be inserted with logo
+      </div>
+      <div class="graph">
+        <div id="pieContainer"></div>
+        <div id="barContainer"></div>
+      </div>
+      Number of calls dropped for the day
+      average talk time per call
+      international vs local calls ratio
+
+      pie chart?? graoh for abnormally dropped and unsuccessfull call attempt
+      bar graph?? location with max nnumber of calls
+    </div>
+  </div>
+  <script>
+  window.onload = function () {
+	var chartPie = new CanvasJS.Chart("pieContainer",
+	{
+		title:{
+			text: "Dropped Calls",
+			fontFamily: "arial black"
+		},
+                animationEnabled: true,
+		legend: {
+			verticalAlign: "bottom",
+			horizontalAlign: "center"
+		},
+		theme: "theme1",
+		data: [
+		{
+			type: "pie",
+			indexLabelFontFamily: "Garamond",
+			indexLabelFontSize: 20,
+			indexLabelFontWeight: "bold",
+			startAngle:0,
+			indexLabelFontColor: "MistyRose",
+			indexLabelLineColor: "darkgrey",
+			indexLabelPlacement: "inside",
+			toolTipContent: "{name}: {y}hrs",
+			showInLegend: true,
+			indexLabel: "#percent%",
+			dataPoints: [
+				{  y: 52, name: "Normal Calls", legendMarkerType: "triangle"},
+				{  y: 44, name: "Abnormally dropped", legendMarkerType: "square"},
+				{  y: 12, name: "Unsuccessful", legendMarkerType: "circle"}
+			]
+		}
+		]
+	});
+	chartPie.render();
+    var chartBar = new CanvasJS.Chart("barContainer",
+    {
+      title:{
+        text: "Call volume - Location wise"
+      },
+      animationEnabled: true,
+      axisY: {
+        title: "Volume"
+      },
+      legend: {
+        verticalAlign: "bottom",
+        horizontalAlign: "center"
+      },
+      theme: "theme2",
+      data: [
+
+      {
+        type: "column",
+        showInLegend: true,
+        legendMarkerColor: "grey",
+        legendText: "Volume",
+        dataPoints: [
+        {y: 297571, label: "Venezuela"},
+        {y: 267017,  label: "Saudi" },
+        {y: 175200,  label: "Canada"},
+        {y: 154580,  label: "Iran"},
+        {y: 116000,  label: "Russia"},
+        {y: 97800, label: "UAE"},
+        {y: 20682,  label: "US"},
+        {y: 20350,  label: "China"}
+        ]
+      }
+      ]
+    });
+
+    chartBar.render();
+  }
+</script>
+</body>
+</html>

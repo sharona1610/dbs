@@ -1,0 +1,44 @@
+.side{
+  background-color: rgba(40, 56, 69, 1);
+  height: 100vh;
+  color: rgb(242, 149, 89);
+  padding-right:0;
+padding-left:0;
+}
+.side-text{
+  background-color: rgba(40, 56, 69, 0);
+  border: none !important;
+  text-align: center;
+  margin: 10%;
+  font-size: 1.2em;
+}
+.side-bar{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.head{
+  background-color: rgb(184, 176, 141);
+  padding-bottom: 5%;
+  width: 100%;
+  text-align: center;
+}
+.main{
+  padding-right:0;
+padding-left:0;
+}
+.table{
+  height: 30vh;
+  overflow: scroll;
+}
+#pieContainer, #barContainer{
+  /*height: 30%;
+  width: 30%;*/
+  height: 250px;
+  width: 250px;
+}
+.graph{
+  display: flex;
+  margin: 10%;
+}
