@@ -8,6 +8,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="./css/style.css">
 
+<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.5.0.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -49,7 +51,7 @@
 							<div id="if">
 								<div class="glyphicon glyphicon-plus" onclick=""></div>
 								<span style="margin:5px">if</span>
-								<select class="form-control" placeholder="termination type">
+								<select id="rule1val1" class="form-control" placeholder="termination type">
 									<option value="" disabled selected>Termination type</option>
 									<option id="1">abonormally dropped call</option>
 									<option id="2">unsuccessful call attempt</option>
@@ -191,20 +193,17 @@
     <script src="js/bootstrap.min.js"></script>
 	<script>
 
-	$(document).ready(function(){
-		$.ajax({
-		   url: 'https://zai17s62h0.execute-api.ap-southeast-1.amazonaws.com/prod/retrieverules',
-		   data: {
-			  format: 'json'
-		   },
-		   error: function(exception){alert('Exeption:'+exception);},
-		   dataType: 'jsonp',
-		   success: function(data) {
-			  alert("done");
-		   },
-		   type: 'GET'
-		});
-	});
+  var API_PATH = "https://zai17s62h0.execute-api.ap-southeast-1.amazonaws.com/prod/retrieverules"
+  $.ajax({
+      url: API_PATH,
+      type: 'GET'
+    }).done(function (data) {
+      var resp = JSON.parse(data)
+      // console.log('success listing peanuts', resp)
+    }).fail(function () {
+      console.log('error listing peanuts')
+    })
+
 	</script>
   </body>
 </html>

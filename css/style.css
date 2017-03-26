@@ -39,14 +39,37 @@ padding-left:0;
 .table{
   height: 30vh;
   overflow: scroll;
+  width: 50vw;
+  margin: 10%;
+  margin-top: 2%;
+  font-family: 'Josefin Sans', serif;
 }
 #pieContainer, #barContainer{
   /*height: 30%;
   width: 30%;*/
   height: 250px;
-  width: 250px;
+  margin: 0, 20px;
+  width: 300px;
+}
+.stats{
+  width: 200px;
+  height: 80px;
+  background: rgb(40, 56, 69);
+  border-radius: 10px;
+  display: inline;
+  margin: 5%;
+  font-family: 'Josefin Sans', serif;
+  text-align: center;
+  color: white;
+}
+.big{
+  font-size: 1.5em;
+  font-weight: bolder;
 }
 .graph{
   display: flex;
-  margin: 10%;
+  margin: 5%;
+}
+.flex{
+  display: flex
 }
