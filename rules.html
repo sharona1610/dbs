@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>Rules Management</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="./css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,7 +21,7 @@
   <body>
 
 	<div class="row">
-    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 side">
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 side" style="font-family: 'Josefin Sans', serif;">
       <ul class="list-group side-bar">
         <li class="list-group-item side-text" href="#">DASHBOARD</li>
         <li class="list-group-item side-text" href="#">UPDATES</li>
@@ -29,7 +31,7 @@
 
 	<div class="col-md-9 col-lg-9 col-xl-9 main">
       <div class="head">
-        Name to be inserted with logo
+        Rules Management
       </div>
 	  <div style="padding: 10px 0">
 		<button type="button" class="btn btn-primary glyphicon-plus">Add new rule</button>
@@ -44,35 +46,26 @@
 			<div id="collapse1" class="panel-collapse collapse">
 			  <div class="panel-body">
 				<div id="rule1">
-					<form class="form-inline">
+					<form class="form-inline" id="droppedCalls">
 						<div class="condition" class="form-inline" style="padding: 0 10px">
 							<div id="if">
 								<div class="glyphicon glyphicon-plus" onclick=""></div>
-								<span style="margin:5px">if</span>
-								<select class="form-control" placeholder="termination type">
-									<option value="" disabled selected>Termination type</option>
-									<option id="1">abonormally dropped call</option>
-									<option id="2">unsuccessful call attempt</option>
-								</select>
+								<span style="margin:5px">if number of dropped calls</span>
 								<span style="margin:5px">is</span>
-								<select class="form-control mb-2 mr-sm-2 mb-sm-0">
+								<select name="operator" class="form-control mb-2 mr-sm-2 mb-sm-0">
 									<option id="1">></option>
 									<option id="2"><</option>
 									<option id="3">=</option>
 								</select>
-								<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="number of times">
+								<input type="text" name="numOfDropouts" class="form-control right" id="inlineFormInputGroup" placeholder="number of times">
 							</div>
-							<div id="then" style="margin-top: 10px">
+							<div id="then" style="margin-top: 10px" name="offer">
 								<h5><b>Promotion offered is:</b></h4>
-								<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="Percent">
+								<input name="percent" type="text" class="form-control right" id="promo1" placeholder="Percent">
 								<span style="margin:5px">% for</span>
-								<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="number of">
+								<input type="text" class="form-control right" id="promo2" placeholder="number of">
 								<span style="margin:5px">days</span>
 							</div>
-						</div>
-						<div class="pull-right">
-						<button type="button" class="btn btn-primary">Save</button>
-						<button type="button" class="btn btn-default">Cancel</button>
 						</div>
 					</form>
 				</div>
@@ -90,28 +83,28 @@
 			<div id="collapse2" class="panel-collapse collapse">
 			  <div class="panel-body">
 				<div id="rule1">
-					<form class="form-inline">
+					<form class="form-inline" id="totalIncomingCallsRule">
 						<div class="condition" class="form-inline" style="padding: 0 10px">
 							<div class="glyphicon glyphicon-plus" onclick=""></div>
 							<div class="glyphicon glyphicon-minus disabled"></div>
 							<span style="margin:5px">If</span>
 							<label for="param">Number of Calls</label>
 							<span style="margin:5px">is</span>
-							<select id="param" class="form-control mb-2 mr-sm-2 mb-sm-0">
+							<select id="param" name="operator" class="form-control mb-2 mr-sm-2 mb-sm-0">
 								<option id="1">></option>
 								<option id="2"><</option>
 								<option id="3">=</option>
 							</select>
-							<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="value">
+							<input type="text" class="form-control right" name="value" id="inlineFormInputGroup" placeholder="value">
 						</div>
             <div><br />
               <div><strong>Promotion offered is: </strong></div>
-              <input type="text" name="" value="100">
-              <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="type">
+              <input name="promo1" type="text" name="" value="100">
+              <select name="promo2" class="form-control mb-2 mr-sm-2 mb-sm-0" name="type">
                 <option value="">Incoming</option>
                 <option value="">Outcoming</option>
               </select>
-              <input type="text" name="" value="7">
+              <input name="promo3" type="text" name="" value="7">
 
             </div>
 					</form>
@@ -130,51 +123,56 @@
 			<div id="collapse3" class="panel-collapse collapse">
 			  <div class="panel-body">
 				<div id="rule1">
-					<form class="form-inline">
+					<form class="form-inline" id="internationalCallRule">
 						<div class="condition" class="form-inline" style="padding: 0 10px">
 							<div class="glyphicon glyphicon-plus" onclick=""></div>
 							<div class="glyphicon glyphicon-minus disabled"></div>
 							<span style="margin:5px">if</span>
 
-							<select class="form-control ">
+							<select class="form-control " name="location">
 								<option id="1" disabled="true">Location</option>
-								<option id="2">International Calls</option>
-								<option id="3">Local Calls</option>
+								<option id="International">International Calls</option>
+								<option id="Local">Local Calls</option>
 
 							</select>
 							<span style="margin:5px">is</span>
-							<select class="form-control mb-2 mr-sm-2 mb-sm-0">
+							<select class="form-control mb-2 mr-sm-2 mb-sm-0" name="operator">
 								<option id="1">></option>
 								<option id="2"><</option>
 								<option id="3">=</option>
 							</select>
-							<input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="No of calls">
-              <select class="form-control mb-2 mr-sm-2 mb-sm-0">
+							<input type="text" name="noOfCalls" class="form-control right" id="inlineFormInputGroup" placeholder="No of calls">
+              <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="operator2">
                 <option id="1">></option>
                 <option id="2"><</option>
                 <option id="3">=</option>
               </select>
-              <input type="text" class="form-control right" id="inlineFormInputGroup" placeholder="Duration">
+              <input type="text" class="form-control right" name="days" id="inlineFormInputGroup" placeholder="Duration">
 						</div>
             <div><br />
               <div><strong>Promotion offered is: </strong></div>
-              <input type="text" name="" value="" placeholder="Discount offered">
+              <input type="text" name="promo1" value="" placeholder="Discount offered">
               <span style="margin:5px">for</span>
-              <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="type">
+              <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="promo2">
                 <option value="">International Incoming</option>
                 <option value="">International Outgoing</option>
                 <option value="">Local Incoming</option>
                 <option value="">Local Outgoing</option>
               </select>
               <span style="margin:5px">for</span>
-              <input type="text" name="" value="7">
+              <input type="text" name="promo3" value="7">
               <span style="margin:5px">Days</span>
 
             </div>
+						
 					</form>
 				</div>
 			  </div>
 			</div>
+						<div class="pull-right" style="padding:10px;">
+						<button type="button" class="btn btn-primary submit">Save</button>
+						<button type="button" class="btn btn-default cancel">Cancel</button>
+						</div>
 		  </div>
 		</div>
 
@@ -192,19 +190,57 @@
 	<script>
 
 	$(document).ready(function(){
-		$.ajax({
-		   url: 'https://zai17s62h0.execute-api.ap-southeast-1.amazonaws.com/prod/retrieverules',
-		   data: {
-			  format: 'json'
-		   },
-		   error: function(exception){alert('Exeption:'+exception);},
-		   dataType: 'jsonp',
-		   success: function(data) {
-			  alert("done");
-		   },
-		   type: 'GET'
-		});
-	});
+		 var API_PATH = "https://zai17s62h0.execute-api.ap-southeast-1.amazonaws.com/prod/retrieverules"
+		 $.ajax({
+		  url: API_PATH,
+		  type: 'GET'
+		 }).done(function (data) {
+		   var resp = JSON.parse(data);
+		   
+		   var dcform = document.getElementById("droppedCalls")
+		   var ticform = document.getElementById("totalIncomingCallsRule");
+		   var icform = document.getElementById("internationalCallRule");
+		   
+		   dcform.elements["promo1"].value = resp.InternationalCallRule.offer.discount;
+		   dcform.elements["promo2"].value = resp.InternationalCallRule.offer.validity;
+		   ticform.elements["promo1"].value = resp.totalIncomingCallsRule.offer.discount;
+		   ticform.elements["promo2"].value = resp.totalIncomingCallsRule.offer.validity;
+		   ticform.elements["promo3"].value = resp.totalIncomingCallsRule.offer.validity;
+		 }).fail(function () {
+		   console.log('error listing peanuts')
+		 });
+		 
+		 $('.submit').click(function(){
+			alert("blah");
+			var API_PATH = '';
+			var formData = JSON.stringify(buildJson());
+			$.ajax({
+				url : API_PATH,
+				type: "POST",
+				data : formData,
+				success: function(data, textStatus, jqXHR)
+				{
+					//data - response from server add modal window
+				},
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					//add something
+				}
+			});
+		 });
+		}); 
+		
+		function buildJson() {
+			var dcform = document.getElementById("droppedCalls")
+			var ticform = document.getElementById("totalIncomingCallsRule");
+			var icform = document.getElementById("internationalCallRule");
+			
+			var dcRule = { numOfDropouts: dcform.elements["operator"].value, offer : { discount : dcform.elements["promo1"].value, validity : dcform.elements["promo2"].value }};
+			var ticRule = { numOfCalls: ticform.elements["operator"].value, offer : { discount : ticform.elements["promo1"].value, type: ticform.elements["promo2"].value, validity : ticform.elements["promo3"].value }};
+			var icRule = { location: icform.elements["location"].options["selectedIndex"].id, numOfCalls: icform.elements["noOfCalls"].value, duration: icform.elements["days"].value, offer : { discount : icform.elements["promo1"].value, type: icform.elements["promo2"].value, validity : icform.elements["promo3"].value }};
+			
+			return { InternationalCallRule : icRule, DroupOutRule : dcRule, TotalIncomingCallsRule : ticRule };
+		}
 	</script>
   </body>
 </html>
